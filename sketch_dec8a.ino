@@ -2,14 +2,15 @@
 #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
 
-// WiFi配置
+// secret file
 #include "arduino_secrets.h"   //import password file
 
 
 const char* ssid     = SECRET_SSID; // Set the WiFi SSID from the arduino_secrets.h file
 const char* password = SECRET_PASS; // Set the WiFi password from the arduino_secrets.h file
+const char* BOTURL = SECRET_URL; // Set the WiFi password from the arduino_secrets.h file
 
-const char* serverUrl = "http://43.157.46.171:3000/sendToDiscord"; // 替换为您的Node.js服务器URL
+const char* serverUrl = BOTURL; // SERVER_url
 
 WiFiClient wifiClient;
 
@@ -34,7 +35,7 @@ void loop() {
 void sendDataToServer(String data) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
-    http.begin(wifiClient, serverUrl); // 使用WiFiClient对象和URL初始化HTTPClient
+    http.begin(wifiClient, serverUrl); // start the wifiClient
 
     http.addHeader("Content-Type", "application/json");
     
