@@ -3,7 +3,7 @@
 SoftwareSerial espSerial(10, 11); // RX, TX
 
 const int sensorPins[4] = {A0, A1, A2, A3};
-const int touchSensorPin = 2; // 触摸传感器连接到数字引脚2
+const int touchSensorPin = 2; // 2 for touch sensor
 const int THRESHOLD = 75;
 
 int seatFrontBackDiff;
@@ -19,21 +19,21 @@ void setup() {
 
 void loop() {
   int sensorValue = digitalRead(touchSensorPin);
-  if (sensorValue==1) { // 检测到触摸
+  if (sensorValue==1) { // detect of touching
     isSleeping = true;
     sleepStartTime = millis();
   }
 
   if (isSleeping) {
-    if (millis() - sleepStartTime > 3600000) { // 1小时后唤醒
+    if (millis() - sleepStartTime > 3600000) { // 1h sleep
       isSleeping = false;
     } else {
-      delay(1000); // 休眠期间每秒检查一次
+      delay(1000); // check 1s per time during sleep
       return;
     }
   }
 
-  // 正常操作
+  // normal
   int sensorValues[4];
   for (int i = 0; i < 4; i++) {
     sensorValues[i] = analogRead(sensorPins[i]);
@@ -46,7 +46,7 @@ void loop() {
     sendToESP8266(alert);
   }
 
-  delay(1000); // 1秒延迟
+  delay(1000); // 1s delay
 }
 
 bool isPostureChanged(int values[]) {
