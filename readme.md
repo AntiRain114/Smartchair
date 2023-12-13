@@ -21,3 +21,17 @@ This repository contains the code for a smart chair prototype designed to monito
 
    ```bash
    git clone https://github.com/your-username/smart-chair.git
+  - Open the Arduino IDE and load the sketches (sensor.ino and transmit.ino).
+  - Install the required libraries.
+
+### Usage
+-Upload sensor.ino to the microcontroller responsible for data collection.
+-Upload transmit.ino to the microcontroller responsible for data upload.
+-Ensure that the ESP8266WIFICLIENT library is correctly installed.
+### Configuration
+- Modify the code to customize parameters such as WiFi credentials, data processing algorithms, and transmission intervals.
+### Contributing
+-Contributions are welcome! Please follow the contribution guidelines.
+
+### License
+This project is licensed under the MIT License.
