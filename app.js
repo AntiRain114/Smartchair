@@ -3,8 +3,8 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const app = express();
 
 
-const BOT_TOKEN = 'MTE3Mzc3NjQzOTEzMzM0NzkzMA.Gas1bN.G7hMX26vVimLPIVww9j2u60rNYh9Ny8u2Xj8TM';
-const CHANNEL_ID = '916031513601138712';
+const BOT_TOKEN = '*';
+const CHANNEL_ID = '*';
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
